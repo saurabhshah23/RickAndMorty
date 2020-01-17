@@ -1,0 +1,91 @@
+$sm-view: 576px;
+$md-view: 768px;
+$lg-view: 992px;
+$xl-view: 1200px;
+
+.App {
+  font-family: sans-serif;
+}
+
+.char-cards .card-title,
+.char-cards small {
+  color: #fff;
+}
+
+.searchWrapper{
+  .rotateSignAscending {
+    transform: rotate(90deg);
+  }
+  .rotateSignDescending {
+    transform: rotate(270deg);
+  }
+}
+
+.char-cards {
+  .characterWrapper{
+
+    &:nth-child(odd){
+      padding-right: 7.5px;
+    }
+    &:nth-child(even){
+      padding-left: 7.5px;
+    }
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+
+
+    .card {
+      background-color: black;
+      .card-body{
+        opacity: 0.8;
+      }
+      .char-title{
+        background-color: #333;
+      }
+      .card-text {
+        background-color: #333;
+        .list-group-item {
+          background-color: transparent;
+          color: lightgray;
+          padding: 6px 0;
+          border-color: lightgray;
+        }
+      }
+      .mt-n-title {
+        margin-top: -55px;
+      }
+      .card-title {
+        font-size: 13px;
+      }
+      small {
+        font-size: 8px;
+      }
+    }
+    .char-label,
+    .char-value {
+      font-size: 8px;
+    }
+    .char-label {
+      padding-right: 0;
+    }
+    .char-value{
+      color: orange;
+      text-align: right;
+      padding-left: 0;
+    }
+  }
+}
+
+@media (min-width: $sm-view) {
+  .char-cards .characterWrapper {
+    padding: 7.5px 7.5px;
+    &:nth-child(4n-3){
+      padding-left: 15px;
+      padding-right: 7.5px;
+    }
+    &:nth-child(4n-0){
+      padding-right: 15px;
+      padding-left: 7.5px;
+    }
+  }
+}
