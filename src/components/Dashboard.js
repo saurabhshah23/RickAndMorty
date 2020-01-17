@@ -31,20 +31,26 @@ class Dashboard extends Component {
 
   componentDidMount() {
     try {
-      axios.get(constants.api.CHAR_LIST).then(data => {
-        console.log("call setState...");
-        this.setState(
-          {
-            ...this.state,
-            allChars: data.data.results,
-            filteredChars: data.data.results
-          },
-          () => {
-            console.log("call stopLoading...");
-            this.stopLoading();
-          }
-        );
-      });
+      axios.get(constants.api.CHAR_LIST).then(
+        data => {
+          console.log("call setState...", data);
+          this.setState(
+            {
+              ...this.state,
+              allChars: data.data.results,
+              filteredChars: data.data.results
+            },
+            () => {
+              console.log("call stopLoading...");
+              this.stopLoading();
+            }
+          );
+        },
+        err => {
+          console.error("Err in axios req: ", err);
+          this.stopLoading();
+        }
+      );
     } catch (err) {
       console.error("Err in axios req: ", err);
       this.stopLoading();
